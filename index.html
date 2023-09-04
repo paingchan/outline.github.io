@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outline VPN</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="outline.png" alt="Outline VPN Logo">
+        <h1 id="header-title">Secure Your Online World</h1>
+        <p id="header-description">Explore the internet privately and securely with Outline VPN</p>
+        <div id="language-selector">
+            <label for="language" data-translation="select-language-label">Select Language:</label>
+            <select id="language" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="th">Thai</option>
+                <option value="id">Indonesian</option>
+            </select>
+        </div>
+        <div id="mode-selector">
+            <!-- Add icons for dark mode and light mode -->
+            <i class="fas fa-sun" id="light-mode-icon"></i>
+            <i class="fas fa-moon" id="dark-mode-icon"></i>
+        </div>
+    </header>
+    <main>
+        <section class="package" id="package1">
+            <h2 id="package1-title">1 Month Plan</h2>
+            <p id="package1-description">Stay secure for 30 days</p>
+            <p id="package1-price">Price: ¥25/month</p>
+            <button class="buy-button">Buy Now</button>
+        </section>
+        <section class="package" id="package2">
+            <h2 id="package2-title">1 Year Plan</h2>
+            <p id="package2-description">Enjoy online privacy for a year</p>
+            <p id="package2-price">Price: ¥250/year</p>
+            <button class="buy-button">Buy Now</button>
+        </section>
+    </main>
+
+    <div class="shadow-box download-box">
+        <a href="outline-vpn-download-link" class="download-link">Download Outline VPN</a>
+    </div>
+    <!-- User Guide Box -->
+    <div class="shadow-box user-guide-box">
+        <a href="#" class="user-guide-link" onclick="showUserGuidePopup()">User Guide</a>
+    </div>
+
+    <div id="user-guide-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closeUserGuidePopup()">&times;</span>
+            <h2 id="user-guide-title">How to Use and Connect to Outline VPN</h2>
+            <p id="user-guide-step1">Step 1: Download and install Outline VPN on your device.</p>
+            <p id="user-guide-step2">Step 2: Launch the application and follow the setup wizard.</p>
+            <p id="user-guide-step3">Step 3: Connect to a VPN server of your choice.</p>
+            <p id="user-guide-step4">Step 4: Enjoy secure and private browsing!</p>
+        </div>
+    </div>
+
+    <div id="contact-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closeContactPopup()">&times;</span>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance with your purchase, feel free to contact us:</p>
+            <div class="contact-buttons">
+                <button class="contact-button" onclick="openWeChat()">WeChat</button>
+                <button class="contact-button" onclick="openInstagram()">Instagram</button>
+                <button class="contact-button" onclick="openEmail()">Email</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Outline VPN. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+header {
+    background-color: #009688;
+    text-align: center;
+    padding: 20px;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #fff;
+}
+
+header p {
+    font-size: 18px;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for small screens */
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+}
+
+.package {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.package:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.package h2 {
+    font-size: 24px;
+    color: #009688;
+    margin-top: 10px;
+}
+
+.package p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.buy-button {
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.buy-button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #009688;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0; /* Increase vertical padding for a better footer appearance */
+    font-size: 16px;
+}
+
+/* Dark Mode Styles */
+footer.dark-mode {
+    background-color: #333;
+}
+
+/* Add styles for dark mode and light mode icons */
+#mode-selector {
+    margin-top: 10px;
+    color: #666; /* Gray color for icons */
+    cursor: pointer;
+}
+
+#light-mode-icon {
+    display: none; /* Initially hide light mode icon */
+}
+
+#dark-mode-icon:hover,
+#light-mode-icon:hover {
+    color: #009688; /* Teal color on hover */
+}
+
+/* Dark Mode Styles */
+body.dark-mode #dark-mode-icon {
+    display: none; /* Hide dark mode icon in dark mode */
+}
+
+body.dark-mode #light-mode-icon {
+    display: inline; /* Display light mode icon in dark mode */
+}
+
+.shadow-box {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto; /* Center the boxes horizontally and add margin for spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.shadow-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for download box */
+.download-box {
+    background-color: #009688;
+}
+
+.download-link {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Style for user guide box */
+.user-guide-box {
+    background-color: #ffa726; /* Orange color for user guide box */
+}
+
+.user-guide-link {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.user-guide-link:hover {
+    text-decoration: underline;
+}
+
+/* ... (previous CSS rules) ... */
+
+/* Style for popup */
+
+/* Style for popup content text in dark mode */
+body.dark-mode .popup-content {
+    background-color: #333; /* Dark background color in dark mode */
+    color: #fff; /* White text color in dark mode */
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    overflow: auto;
+}
+
+.popup-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 100px auto; /* Center the popup vertically */
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.contact-buttons {
+    text-align: center;
+}
+
+.contact-button {
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+/* ... (other CSS styles) ... */
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    header img {
+        width: 80px;
+        margin-right: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .package {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .package h2 {
+        font-size: 20px;
+    }
+
+    .package p {
+        font-size: 14px;
+    }
+
+    .buy-button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 10px 0;
+    }
+}
+
+</style>
+
+</html>
